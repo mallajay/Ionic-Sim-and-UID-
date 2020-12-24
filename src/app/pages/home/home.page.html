@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="lines"> </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header color="primary">
+            <ion-label class="ion-text-center">
+              Device Information
+            </ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              Result: {{deviceInfoService.simResult}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              hasPermission : {{deviceInfoService.hasPermission }}
+            </ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="deviceInfoService.simResultObject">
+            <ion-label class="ion-text-wrap">
+              Phone Number: {{deviceInfoService.simResultObject.phoneNumber}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="deviceInfoService.simResultObject">
+            <ion-label class="ion-text-wrap">
+              Device ID : {{deviceInfoService.simResultObject.deviceId}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="deviceInfoService.simResultObject">
+            <ion-label class="ion-text-wrap">
+              SIM Serial Number :
+              {{deviceInfoService.simResultObject.simSerialNumber}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="deviceInfoService.simResultObject">
+            <ion-label class="ion-text-wrap">
+              Country Code: {{deviceInfoService.simResultObject.countryCode}}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header color="warning">
+            <ion-label class="ion-text-center">
+              Unique Identifiers
+            </ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              UUID: {{deviceInfoService.UUID}}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              IMEI: {{deviceInfoService.IMEI}}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              IMSI: {{deviceInfoService.IMSI}}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              ICCID: {{deviceInfoService.ICCID}}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

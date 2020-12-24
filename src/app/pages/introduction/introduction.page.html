@@ -1,0 +1,77 @@
+<ion-slides pager="true" [options]="sliderOpts2" #slider #slideWithNav2>
+  <!-- SLIDE 1 -->
+  <ion-slide class="slide-background">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="9" style="top: 2%;">
+        <ion-item
+          lines="none"
+          detail="false"
+          style="
+            border: 1px solid black;
+            border-radius: 4px;
+            line-height: normal;
+          "
+        >
+          <ion-label class="ion-text-center ion-text-wrap font">
+            INSTRUCTION
+          </ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item lines="none" detail="false">
+          <ion-label class="ion-text-center">
+            <ion-img
+              style="max-width: 75%; margin: auto;"
+              src="assets/solar_one.svg"
+              alt="solar one"
+            >
+            </ion-img>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label class="ion-text-center font">
+              <h3 style="color: black;">
+                Welcome to
+              </h3>
+              <h1>
+                <b style="color: black; font-family: Special Elite;">
+                  SOLAR ONE
+                </b>
+              </h1>
+              <small>Safety, Quality, Reliability</small>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label class="ion-text-center">
+              <ion-button
+                color="dark"
+                fill="outline"
+                (click)="slideNext(slideWithNav2)"
+              >
+                NEXT
+              </ion-button>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-text-center">
+              <ion-button
+                [hidden]="!showSkip"
+                color="primary"
+                fill="clear"
+                (click)="startApp()"
+              >
+                Skip
+              </ion-button>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+</ion-slides>
